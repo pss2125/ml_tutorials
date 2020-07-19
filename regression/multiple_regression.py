@@ -27,6 +27,7 @@ regressor = LinearRegression()
 regressor.fit(X_train,y_train)
 y_pred = regressor.predict(X_test)
 
+
 #optomal model using backward elimination
 import statsmodels.api as sm
 import statsmodels.iolib.table as smtb
@@ -70,5 +71,7 @@ regressor_OLS = sm.OLS(endog = y, exog = X_opt).fit()
 t = regressor_OLS.summary().tables[1][2][4]
 z = regressor_OLS.summary().tables[1]
 print(regressor_OLS.summary().tables[1])
-
+print('###')
+# print(regressor_OLS.t_test([0,2]))
+print(regressor_OLS.predict(X_test))
 #### 
